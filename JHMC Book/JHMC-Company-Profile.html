@@ -1,12 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width = 1920, user-scalable = no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>JHMC Company Profile</title>
-<script type="text/javascript" src="../../extras/jquery.min.js"></script>
-<script type="text/javascript" src="../../lib/turn.min.js"></script>
-<script type="text/javascript" src="../../lib/scissor.min.js"></script>
-<link rel="stylesheet" href="css/double-page.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/turn.js@4.1.1/turn.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/turn.js@4.1.1/lib/scissor.min.js"></script>
+<link rel="stylesheet" href="double-page.css">
+<style>
+    /* Add this to fix positioning and remove gradients */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        background: #ffffff !important; /* Force white background */
+    }
+    
+    .flipbook-viewport {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #ffffff !important;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
 </head>
 <body>
 
@@ -34,44 +61,38 @@
 	</div>
 </div>
 
-
 <script type="text/javascript">
-
 function loadApp() {
+    var flipbook = $('.flipbook');
 
-	var flipbook = $('.flipbook');
+    // Check if the CSS was already loaded
+    if (flipbook.width()==0 || flipbook.height()==0) {
+        setTimeout(loadApp, 10);
+        return;
+    }
 
- 	// Check if the CSS was already loaded
-	
-	if (flipbook.width()==0 || flipbook.height()==0) {
-		setTimeout(loadApp, 10);
-		return;
-	}
+    $('.flipbook .double').scissor();
 
-	$('.flipbook .double').scissor();
-
-	// Create the flipbook
-
-	$('.flipbook').turn({
-			// Elevation
-
-			elevation: 50,
-			
-			// Enable gradients
-
-			gradients: true,
-			
-			// Auto center this flipbook
-
-			autoCenter: true
-
-	});
+    // Create the flipbook
+    $('.flipbook').turn({
+        // Elevation
+        elevation: 50,
+        
+        // Disable gradients to remove grey background
+        gradients: false,
+        
+        // Auto center this flipbook
+        autoCenter: true,
+        
+        // Add display: 'double' for proper page display
+        display: 'double'
+    });
 }
 
-// Load turn.js
-
-loadApp()
-
+// Load when document is ready
+$(document).ready(function() {
+    loadApp();
+});
 </script>
 
 </body>
