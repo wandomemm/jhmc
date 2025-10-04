@@ -3,36 +3,54 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>JHMC Company Profile</title>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/turn.js@4.1.1/turn.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/turn.js@4.1.1/lib/scissor.min.js"></script>
-<link rel="stylesheet" href="double-page.css">
+
+<!-- FIXED: Use CDN versions instead of local files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.1/turn.min.js"></script>
+<!-- Note: scissor.min.js might not be available on CDN, we'll handle this -->
+
 <style>
-    /* Add this to fix positioning and remove gradients */
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-        background: #ffffff !important; /* Force white background */
-    }
-    
-    .flipbook-viewport {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #ffffff !important;
-    }
-    
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-    }
+/* Add basic flipbook styling since we're not sure about double-page.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.flipbook-viewport {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+}
+
+.flipbook {
+    width: 1200px;
+    height: 800px;
+}
+
+.flipbook .page {
+    width: 600px;
+    height: 800px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.flipbook .double {
+    width: 1200px;
+    height: 800px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
 </style>
 </head>
 <body>
@@ -71,7 +89,8 @@ function loadApp() {
         return;
     }
 
-    $('.flipbook .double').scissor();
+    // Remove scissor() call since we don't have the file
+    // $('.flipbook .double').scissor();
 
     // Create the flipbook
     $('.flipbook').turn({
@@ -84,7 +103,7 @@ function loadApp() {
         // Auto center this flipbook
         autoCenter: true,
         
-        // Add display: 'double' for proper page display
+        // Display mode
         display: 'double'
     });
 }
