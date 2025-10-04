@@ -6,7 +6,7 @@
 <script type="text/javascript" src="../../extras/jquery.min.js"></script>
 <script type="text/javascript" src="../../lib/turn.min.js"></script>
 <script type="text/javascript" src="../../lib/scissor.min.js"></script>
-<link rel="stylesheet" href="css/double-page.css">
+<link rel="stylesheet" href="css/page-page.css">
 </head>
 <body>
 
@@ -14,21 +14,21 @@
 	<div class="container">
 		<div class="flipbook">
 			<div class="page" style="background-image:url(pages/JHCM_cover-front.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page1.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page2.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page3.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page4.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page5.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page6.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page7.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page8.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page9.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page10.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page11.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page12.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page13.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page14.png)"></div>
-			<div class="double" style="background-image:url(pages/JHCM_page15.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page1.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page2.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page3.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page4.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page5.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page6.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page7.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page8.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page9.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page10.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page11.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page12.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page13.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page14.png)"></div>
+			<div class="page" style="background-image:url(pages/JHCM_page15.png)"></div>
 			<div class="page" style="background-image:url(pages/JHCM_cover-back.png)"></div>
 		</div>
 	</div>
@@ -48,7 +48,7 @@ function loadApp() {
 		return;
 	}
 
-	$('.flipbook .double').scissor();
+	$('.flipbook .page').scissor();
 
 	// Create the flipbook
 
