@@ -1,78 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width = 1920, user-scalable = no" />
-<title>JHMC Company Profile</title>
-<script type="text/javascript" src="../../extras/jquery.min.js"></script>
-<script type="text/javascript" src="../../lib/turn.min.js"></script>
-<script type="text/javascript" src="../../lib/scissor.min.js"></script>
-<link rel="stylesheet" href="css/page-page.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JHMC Company Flipbook</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #e5e5e5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #flipbook {
+      width: 1190px;
+      height: 842px;
+      transition: transform 0.3s ease;
+    }
+
+    #flipbook .page {
+      width: 595px;
+      height: 842px;
+      background: white;
+    }
+
+    #flipbook .page img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        align-items: flex-start;
+        overflow-y: auto;
+      }
+
+      #flipbook {
+        width: 100vw;
+        height: auto;
+        transform: scale(0.9);
+      }
+
+      #flipbook .page {
+        width: 100vw;
+        height: auto;
+      }
+
+      #flipbook .page img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div id="flipbook">
+    <div class="page"><img src="pages/JHCM_cover-front.jpg" alt="Cover Front" /></div>
+    <div class="page"><img src="pages/JHCM_page1.jpg" alt="Page 1" /></div>
+    <div class="page"><img src="pages/JHCM_page2.jpg" alt="Page 2" /></div>
+    <div class="page"><img src="pages/JHCM_page3.jpg" alt="Page 3" /></div>
+    <div class="page"><img src="pages/JHCM_page4.jpg" alt="Page 4" /></div>
+    <div class="page"><img src="pages/JHCM_page5.jpg" alt="Page 5" /></div>
+    <div class="page"><img src="pages/JHCM_page6.jpg" alt="Page 6" /></div>
+    <div class="page"><img src="pages/JHCM_page7.jpg" alt="Page 7" /></div>
+    <div class="page"><img src="pages/JHCM_page8.jpg" alt="Page 8" /></div>
+    <div class="page"><img src="pages/JHCM_page9.jpg" alt="Page 9" /></div>
+    <div class="page"><img src="pages/JHCM_page10.jpg" alt="Page 10" /></div>
+    <div class="page"><img src="pages/JHCM_page11.jpg" alt="Page 11" /></div>
+    <div class="page"><img src="pages/JHCM_page12.jpg" alt="Page 12" /></div>
+    <div class="page"><img src="pages/JHCM_page13.jpg" alt="Page 13" /></div>
+    <div class="page"><img src="pages/JHCM_page14.jpg" alt="Page 14" /></div>
+    <div class="page"><img src="pages/JHCM_page15.jpg" alt="Page 15" /></div>
+    <div class="page"><img src="pages/cJHCM_over-back.jpg" alt="Cover Back" /></div>
+  </div>
 
-<div class="flipbook-viewport">
-	<div class="container">
-		<div class="flipbook">
-			<div class="page" style="background-image:url(pages/JHCM_cover-front.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page1.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page2.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page3.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page4.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page5.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page6.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page7.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page8.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page9.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page10.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page11.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page12.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page13.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page14.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_page15.png)"></div>
-			<div class="page" style="background-image:url(pages/JHCM_cover-back.png)"></div>
-		</div>
-	</div>
-</div>
+  <!-- jQuery first -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+  <!-- Reliable turn.js source -->
+  <script src="https://rawcdn.githack.com/blasten/turn.js/master/turn.min.js"></script>
 
-<script type="text/javascript">
-
-function loadApp() {
-
-	var flipbook = $('.flipbook');
-
- 	// Check if the CSS was already loaded
-	
-	if (flipbook.width()==0 || flipbook.height()==0) {
-		setTimeout(loadApp, 10);
-		return;
-	}
-
-	$('.flipbook .page').scissor();
-
-	// Create the flipbook
-
-	$('.flipbook').turn({
-			// Elevation
-
-			elevation: 50,
-			
-			// Enable gradients
-
-			gradients: true,
-			
-			// Auto center this flipbook
-
-			autoCenter: true
-
-	});
-}
-
-// Load turn.js
-
-loadApp()
-
-</script>
-
+  <script>
+    $(function () {
+      $("#flipbook").turn({
+        width: 1190,
+        height: 842,
+        autoCenter: true,
+        gradients: true,
+        elevation: 50,
+      });
+    });
+  </script>
 </body>
 </html>
